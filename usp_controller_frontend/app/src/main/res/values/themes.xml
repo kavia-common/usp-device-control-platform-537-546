@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App theme based on MaterialComponents (matches dependency com.google.android.material:material) -->
     <style name="Theme.UspController" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/ocean_primary</item>
         <item name="colorSecondary">@color/ocean_secondary</item>
@@ -8,25 +9,36 @@
         <item name="android:navigationBarColor">@color/ocean_surface</item>
         <item name="android:windowBackground">@color/ocean_background</item>
         <item name="android:textColor">@color/ocean_text</item>
+        <!-- Hook our custom widgets -->
         <item name="materialButtonStyle">@style/Widget.Usp.Button</item>
         <item name="materialCardViewStyle">@style/Widget.Usp.Card</item>
         <item name="toolbarStyle">@style/Widget.Usp.Toolbar</item>
     </style>
 
-    <style name="Widget.Usp.Button" parent="Widget.Material3.Button">
+    <!-- Use MaterialComponents widget parents to avoid linking errors with Material3-only classes -->
+    <style name="Widget.Usp.Button" parent="Widget.MaterialComponents.Button">
         <item name="android:insetLeft">8dp</item>
         <item name="android:insetRight">8dp</item>
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">16dp</item>
+        <item name="shapeAppearanceOverlay">@style/Widget.Usp.Rounded</item>
     </style>
 
-    <style name="Widget.Usp.Card" parent="Widget.Material3.CardView.Elevated">
+    <style name="Widget.Usp.Card" parent="Widget.MaterialComponents.CardView">
         <item name="cardCornerRadius">16dp</item>
         <item name="cardElevation">3dp</item>
     </style>
 
-    <style name="Widget.Usp.Toolbar" parent="Widget.Material3.Toolbar">
+    <style name="Widget.Usp.Toolbar" parent="Widget.MaterialComponents.Toolbar">
         <item name="android:background">@color/ocean_surface</item>
         <item name="titleTextColor">@color/ocean_text</item>
+    </style>
+
+    <style name="Widget.Usp.Rounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <!-- Base placeholder style to satisfy references like style/Widget.Usp -->
+    <style name="Widget.Usp" parent="Widget.MaterialComponents.Button">
+        <!-- Intentionally minimal; serves as a style namespace anchor -->
     </style>
 </resources>

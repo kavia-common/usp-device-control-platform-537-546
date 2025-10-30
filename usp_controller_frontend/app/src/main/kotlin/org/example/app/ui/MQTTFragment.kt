@@ -34,6 +34,8 @@ class MQTTFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm = ViewModelProvider(requireActivity()).get(MqttVM::class.java)
+        // Ensure manager exists early to avoid lateinit access before onResume
+        vm.initIfNeeded(requireContext())
         val btnConnect = view.findViewById<MaterialButton>(R.id.btn_mqtt_connect)
         val btnDisconnect = view.findViewById<MaterialButton>(R.id.btn_mqtt_disconnect)
         val btnSub = view.findViewById<MaterialButton>(R.id.btn_subscribe)
@@ -73,13 +75,13 @@ class MQTTFragment : Fragment() {
             val topic = inputTopic.text?.toString().orEmpty()
             val qos = inputQos.text?.toString()?.toIntOrNull() ?: 0
             if (topic.isBlank()) {
-                Snackbar.make(view, getString(R.string.topic), Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(view, getString(R.string.topic) + " required", Snackbar.LENGTH_SHORT).show()
             } else vm.manager.subscribe(topic, qos)
         }
         btnUnsub.setOnClickListener {
             val topic = inputTopic.text?.toString().orEmpty()
             if (topic.isBlank()) {
-                Snackbar.make(view, getString(R.string.topic), Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(view, getString(R.string.topic) + " required", Snackbar.LENGTH_SHORT).show()
             } else vm.manager.unsubscribe(topic)
         }
         btnPub.setOnClickListener {
