@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">USP Controller</string>
+
+    <!-- Tabs -->
+    <string name="tab_ws">WebSocket</string>
+    <string name="tab_mqtt">MQTT</string>
+    <string name="tab_config">Config</string>
+
+    <!-- Actions -->
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="send">Send</string>
+    <string name="publish">Publish</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="unsubscribe">Unsubscribe</string>
+    <string name="save">Save</string>
+    <string name="apply">Apply</string>
+
+    <!-- Fields -->
+    <string name="ws_url">WebSocket URL</string>
+    <string name="auth_token">Auth Token (optional)</string>
+    <string name="mqtt_uri">MQTT Broker URI</string>
+    <string name="client_id">Client ID</string>
+    <string name="username">Username (optional)</string>
+    <string name="password">Password (optional)</string>
+    <string name="topic">Topic</string>
+    <string name="qos">QoS</string>
+    <string name="retain">Retain</string>
+    <string name="message">Message</string>
+
+    <!-- Status -->
+    <string name="status_connected">Connected</string>
+    <string name="status_disconnected">Disconnected</string>
+    <string name="status_connecting">Connecting…</string>
+
+    <!-- Hints -->
+    <string name="hint_message">Type a message</string>
+    <string name="hint_topic">e.g. usp/updates</string>
+
+    <!-- Errors -->
+    <string name="error_invalid_ws">Invalid WebSocket URL</string>
+    <string name="error_invalid_mqtt">Invalid MQTT URI</string>
+    <string name="saved_ok">Configuration saved</string>
+</resources>
