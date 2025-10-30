@@ -1,0 +1,4 @@
+{
+    "command": "./gradlew dependencies",
+    "working_directory": "/home/kavia/workspace/code-generation/usp-device-control-platform-537-546/usp_controller_frontend"
+}
