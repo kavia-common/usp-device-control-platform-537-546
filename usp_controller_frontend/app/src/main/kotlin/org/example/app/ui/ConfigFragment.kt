@@ -71,7 +71,7 @@ class ConfigFragment : Fragment() {
                 return null
             }
             if (cid.isBlank()) {
-                Snackbar.make(view, "Client ID required", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(view, getString(R.string.error_client_id_required), Snackbar.LENGTH_SHORT).show()
                 return null
             }
             return AppConfig(
@@ -89,7 +89,7 @@ class ConfigFragment : Fragment() {
         view.findViewById<MaterialButton>(R.id.btn_apply).setOnClickListener {
             val newCfg = readConfig() ?: return@setOnClickListener
             store.save(newCfg)
-            Snackbar.make(view, "Applied", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(view, getString(R.string.applied_ok), Snackbar.LENGTH_SHORT).show()
         }
     }
 }

@@ -75,13 +75,13 @@ class MQTTFragment : Fragment() {
             val topic = inputTopic.text?.toString().orEmpty()
             val qos = inputQos.text?.toString()?.toIntOrNull() ?: 0
             if (topic.isBlank()) {
-                Snackbar.make(view, getString(R.string.topic) + " required", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(view, getString(R.string.error_topic_required), Snackbar.LENGTH_SHORT).show()
             } else vm.manager.subscribe(topic, qos)
         }
         btnUnsub.setOnClickListener {
             val topic = inputTopic.text?.toString().orEmpty()
             if (topic.isBlank()) {
-                Snackbar.make(view, getString(R.string.topic) + " required", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(view, getString(R.string.error_topic_required), Snackbar.LENGTH_SHORT).show()
             } else vm.manager.unsubscribe(topic)
         }
         btnPub.setOnClickListener {
@@ -90,7 +90,7 @@ class MQTTFragment : Fragment() {
             val retain = checkRetain.isChecked
             val payload = inputPayload.text?.toString().orEmpty()
             if (topic.isBlank()) {
-                Snackbar.make(view, getString(R.string.topic), Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(view, getString(R.string.error_topic_required), Snackbar.LENGTH_SHORT).show()
             } else vm.manager.publish(topic, payload, qos, retain)
         }
     }

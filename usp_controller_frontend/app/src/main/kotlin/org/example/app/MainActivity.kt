@@ -81,10 +81,18 @@ class MainActivity : AppCompatActivity() {
             dotWs.setBackgroundResource(
                 if (connected) R.drawable.status_dot_connected else R.drawable.status_dot_disconnected
             )
+            // Update accessibility description
+            dotWs.contentDescription = getString(
+                if (connected) R.string.ws_status_connected else R.string.ws_status_disconnected
+            )
         }
         mqttVM.connected.observe(this) { connected ->
             dotMqtt.setBackgroundResource(
                 if (connected) R.drawable.status_dot_connected else R.drawable.status_dot_disconnected
+            )
+            // Update accessibility description
+            dotMqtt.contentDescription = getString(
+                if (connected) R.string.mqtt_status_connected else R.string.mqtt_status_disconnected
             )
         }
     }

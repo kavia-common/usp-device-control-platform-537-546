@@ -37,8 +37,17 @@
     <string name="hint_message">Type a message</string>
     <string name="hint_topic">e.g. usp/updates</string>
 
-    <!-- Errors -->
+    <!-- Errors and notifications -->
     <string name="error_invalid_ws">Invalid WebSocket URL</string>
     <string name="error_invalid_mqtt">Invalid MQTT URI</string>
     <string name="saved_ok">Configuration saved</string>
+    <string name="applied_ok">Configuration applied</string>
+    <string name="error_client_id_required">Client ID required</string>
+    <string name="error_topic_required">Topic is required</string>
+
+    <!-- Accessibility: toolbar status dots -->
+    <string name="ws_status_connected">WebSocket connected</string>
+    <string name="ws_status_disconnected">WebSocket disconnected</string>
+    <string name="mqtt_status_connected">MQTT connected</string>
+    <string name="mqtt_status_disconnected">MQTT disconnected</string>
 </resources>
